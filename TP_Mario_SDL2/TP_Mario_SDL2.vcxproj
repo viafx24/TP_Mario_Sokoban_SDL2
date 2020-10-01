@@ -142,7 +142,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="editeur.c" />
+    <ClCompile Include="fichiers.c" />
+    <ClCompile Include="jeu.c" />
+    <ClCompile Include="main (2).c" />
     <ClCompile Include="main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="constantes.h" />
+    <ClInclude Include="editeur.h" />
+    <ClInclude Include="fichiers.h" />
+    <ClInclude Include="jeu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="caisse.jpg" />
+    <Image Include="caisse_ok.jpg" />
+    <Image Include="mario_bas.gif" />
+    <Image Include="mario_droite.gif" />
+    <Image Include="mario_gauche.gif" />
+    <Image Include="mario_haut.gif" />
+    <Image Include="menu.jpg" />
+    <Image Include="mur.jpg" />
+    <Image Include="objectif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="niveaux.lvl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
