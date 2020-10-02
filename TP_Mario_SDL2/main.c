@@ -4,7 +4,7 @@
 #include <SDL_image.h>
 
 #include "constantes.h"
-//#include "jeu.h"
+#include "jeu.h"
 //#include "editeur.h"
 
 
@@ -82,8 +82,8 @@ int main(int argc, char *argv[])
 				continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_1: // Demande à jouer
-				//jouer(ecran);
-				printf("you pressed %d\n", 1);
+				jouer(win,rend);
+				//printf("you pressed %d\n", 1);
 				continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_2: // Demande l'éditeur de niveaux
