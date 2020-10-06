@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+//#define _CRT_SECURE_NO_WARNINGS 
+
+int largest(int arr[], int n);
+
+
 int main(void)
 {
 
@@ -17,100 +22,92 @@ int main(void)
 	int Length = 0;
 	int ArrayLength[30];
 
-	err = fopen_s(&stream, "soloban01.txt", "r");
+	//err = fopen_s(&stream, "soloban01.txt", "r");
+	//printf("%d\n", err);
+	//err_2 = fopen_s(&stream_2, "Level.txt", "w+");
+	stream_2 = fopen("Level.txt", "w+");
+	printf("%d\n", stream_2);
 
-	err_2 = fopen_s(&stream_2, "Level.txt", "w");
+	//if (err != NULL)
+	//{
+	//	printf("Problem with Files\n");
+	//	exit(1);
+	//}
 
-	if (err != NULL || err_2 != NULL)
-	{
-		printf("Problem with Files\n");
-		exit(1);
-	}
-
-	else
-
-	{
-
-		printf("The files  were  opened\n");
-
-		while (fgets(str, 60, stream) != NULL)
-		{
-
-			for (int i = 0; i < length(str); i++)
-			{
-				switch (str[i])
-				{
-				case ' ':
-					fputc('0', stream_2);
-					break;
-				case '#':
-					fputc('1', stream_2);
-					break;
-				case '$':
-					fputc('2', stream_2);
-					break;
-				case '.':
-					fputc('3', stream_2);
-					break;
-				case '@':
-					fputc('4', stream_2);
-					break;
-				case '*':
-					fputc('5', stream_2);
-					break;
-				case '+':
-					fputc('6', stream_2);
-					break;
-
-				}
-			}
-
-
-			ArrayLength[Height] = strlen(str);
-			printf("Longueur %d \n", ArrayLength[Height]);
-			Height++;
-		}
-
-		if (stream && stream_2)
-		{
-			err = fclose(stream);
-			err_2 = fclose(stream_2);
-			if (err == 0 && err_2 == 0)
-			{
-				printf("The files  were closed\n");
-			}
-			else
-			{
-				printf("The files  were not closed\n");
-			}
-		}
-
-
-		Length = largest(ArrayLength, 30);
-		
-		printf("Longeur Max= %d\n", Length);
-		printf("Hauteur Max= %d\n", Height);
-
-=
+	//if (err_2 != NULL)
+	//{
+	//	printf("Problem with Files\n");
+	//	exit(1);
+	//}
 
 
 
+	//else
 
-		if (stream)
-		{
-			err = fclose(stream);
-			if (err == 0)
-			{
-				printf("The file  was closed\n");
-			}
-			else
-			{
-				printf("The file  was not closed\n");
-			}
-		}
+	//{
+
+		//printf("The files  were  opened\n");
+
+		//while (fgets(str, 60, stream) != NULL)
+		//{
+
+		//	for (int i = 0; i < strlen(str); i++)
+		//	{
+		//		switch (str[i])
+		//		{
+		//		case ' ':
+		//			fputc('0', stream_2);
+		//			break;
+		//		case '#':
+		//			fputc('1', stream_2);
+		//			break;
+		//		case '$':
+		//			fputc('2', stream_2);
+		//			break;
+		//		case '.':
+		//			fputc('3', stream_2);
+		//			break;
+		//		case '@':
+		//			fputc('4', stream_2);
+		//			break;
+		//		case '*':
+		//			fputc('5', stream_2);
+		//			break;
+		//		case '+':
+		//			fputc('6', stream_2);
+		//			break;
+
+		//		}
+		//	}
+
+
+		//	ArrayLength[Height] = strlen(str);
+		//	printf("Longueur %d \n", ArrayLength[Height]);
+		//	Height++;
+		//}
+
+		//if (stream && stream_2)
+		//{
+		//	err = fclose(stream);
+		//	err_2 = fclose(stream_2);
+		//	if (err == 0 && err_2 == 0)
+		//	{
+		//		printf("The files  were closed\n");
+		//	}
+		//	else
+		//	{
+		//		printf("The files  were not closed\n");
+		//	}
+		//}
+
+
+		//Length = largest(ArrayLength, 30);
+		//
+		//printf("Longeur Max= %d\n", Length);
+		//printf("Hauteur Max= %d\n", Height);
 
 		return 0;
-	}
+	//}
 }
 
 
