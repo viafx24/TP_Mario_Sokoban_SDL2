@@ -2,14 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-//char *line = NULL;
-//size_t len = 0;
-//size_t read;
-
-
-
-
 int main(void)
 {
 
@@ -19,7 +11,6 @@ int main(void)
 	errno_t err;
 	errno_t err_2;
 
-
 	char str[60];
 
 	int Height = 0;
@@ -28,9 +19,11 @@ int main(void)
 
 	err = fopen_s(&stream, "soloban01.txt", "r");
 
-	if (err != NULL)
+	err_2 = fopen_s(&stream_2, "Level.txt", "w");
+
+	if (err != NULL || err_2 != NULL)
 	{
-		printf("The file  was not opened\n");
+		printf("Problem with Files\n");
 		exit(1);
 	}
 
@@ -38,29 +31,57 @@ int main(void)
 
 	{
 
-		printf("The file  was  opened\n");
+		printf("The files  were  opened\n");
 
 		while (fgets(str, 60, stream) != NULL)
 		{
 
-			/* writing content to stdout */
-			//printf(str);
+			for (int i = 0; i < length(str); i++)
+			{
+				switch (str[i])
+				{
+				case ' ':
+					fputc('0', stream_2);
+					break;
+				case '#':
+					fputc('1', stream_2);
+					break;
+				case '$':
+					fputc('2', stream_2);
+					break;
+				case '.':
+					fputc('3', stream_2);
+					break;
+				case '@':
+					fputc('4', stream_2);
+					break;
+				case '*':
+					fputc('5', stream_2);
+					break;
+				case '+':
+					fputc('6', stream_2);
+					break;
+
+				}
+			}
+
+
 			ArrayLength[Height] = strlen(str);
 			printf("Longueur %d \n", ArrayLength[Height]);
-
 			Height++;
 		}
 
-		if (stream)
+		if (stream && stream_2)
 		{
 			err = fclose(stream);
-			if (err == 0)
+			err_2 = fclose(stream_2);
+			if (err == 0 && err_2 == 0)
 			{
-				printf("The file  was closed\n");
+				printf("The files  were closed\n");
 			}
 			else
 			{
-				printf("The file  was not closed\n");
+				printf("The files  were not closed\n");
 			}
 		}
 
@@ -70,48 +91,7 @@ int main(void)
 		printf("Longeur Max= %d\n", Length);
 		printf("Hauteur Max= %d\n", Height);
 
-
-
-		err_2 = fopen_s(&stream_2, "Level.txt", "w");
-
-
-		while (fgets(str, 60, stream) != NULL)
-		{
-
-			for (i = 0; i < Height; i++)
-			{
-				for (j = 0; j < Length; j++)
-				{
-					switch (str[(i * Length) + j])
-					{
-					case ' ':
-						niveau[j][i] = 0;
-						break;
-					case '#':
-						niveau[j][i] = 1;
-						break;
-					case '$':
-						niveau[j][i] = 2;
-						break;
-					case '.':
-						niveau[j][i] = 3;
-						break;
-					case '@':
-						niveau[j][i] = 4;
-						break;
-					case '*':
-						niveau[j][i] = 5;
-						break;
-					case '+':
-						niveau[j][i] = 6;
-						break;
-					
-					}
-				}
-			}
-
-			fclose(fichier);
-		}
+=
 
 
 
