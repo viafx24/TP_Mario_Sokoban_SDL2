@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-//#define _CRT_SECURE_NO_WARNINGS 
+//#define _CRT_SECURE_NO_WARNINGS
 
 int largest(int arr[], int n);
-
 
 int main(void)
 {
 
 	FILE *stream;
 	FILE *stream_2;
+	FILE *stream_3;
 
 	char str[60];
 
@@ -19,21 +19,18 @@ int main(void)
 	int Length = 0;
 	int ArrayLength[30];
 
+	int NumberSokoban = 0;
+
 	stream = fopen("soloban01.txt", "r+");
 	stream_2 = fopen("Level.txt", "w+");
+	stream_3 = fopen("Taille.txt", "w+");
 
-	if (stream  == NULL)
+	if (stream == NULL || stream_2 == NULL || stream_3 == NULL)
 	{
 		printf("Problem with Files\n");
 		exit(1);
 	}
 
-	if (stream_2 == NULL)
-	{
-		printf("Problem with Files\n");
-		exit(1);
-	}
-  
 	else
 
 	{
@@ -42,6 +39,28 @@ int main(void)
 
 		while (fgets(str, 60, stream) != NULL)
 		{
+
+			if (strlen(str) < 2)
+			{
+				NumberSokoban++;
+				fputc('\n', stream_2);
+
+				Length = largest(ArrayLength, Height);
+
+				//printf("Longeur Max= %d\n", Length);
+				//printf("Hauteur Max= %d\n", Height);
+
+				fprintf(stream_3, "%d", Length);
+				fputc(' ', stream_3);
+				fprintf(stream_3, "%d", Height);
+				//fputc(Height,stream_3);
+				fputc('\n', stream_3);
+
+				printf("Sokoban Numero %d, longueur %d, hauteur,%d\n", NumberSokoban, Length, Height);
+
+				Height = 0;
+				Length = 0;
+			}
 
 			for (int i = 0; i < strlen(str); i++)
 			{
@@ -68,37 +87,41 @@ int main(void)
 				case '+':
 					fputc('6', stream_2);
 					break;
-
 				}
 			}
 
 			ArrayLength[Height] = strlen(str);
-			printf("Longueur %d \n", ArrayLength[Height]);
+			//	printf("Longueur %d \n", ArrayLength[Height]);
 			Height++;
 		}
-	
-		fclose(stream);
-		fclose(stream_2);
 
-		Length = largest(ArrayLength, Height);
-		
-		printf("Longeur Max= %d\n", Length);
-		printf("Hauteur Max= %d\n", Height);
+		int err_1 = fclose(stream);
+		int err_2 = fclose(stream_2);
+		int err_3 = fclose(stream_3);
+
+		if (err_1 == 0 && err_2 == 0 && err_3 == 0)
+		{
+			printf("Files closed");
+		}
+
+		else
+		{
+			printf("problem closing files");
+		}
 
 		return 0;
 	}
 }
 
-
 int largest(int arr[], int n)
 {
 	int i;
 
-	// Initialize maximum element 
+	// Initialize maximum element
 	int max = arr[0];
 
-	// Traverse array elements from second and 
-	// compare every element with current max   
+	// Traverse array elements from second and
+	// compare every element with current max
 	for (i = 1; i < n; i++)
 		if (arr[i] > max)
 			max = arr[i];
