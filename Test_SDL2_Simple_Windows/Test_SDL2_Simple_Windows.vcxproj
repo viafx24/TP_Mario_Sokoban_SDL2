@@ -148,6 +148,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="New_Fichier.c" />
+    <ClCompile Include="Test_GetLine.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="soloban01.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test_GetLine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
