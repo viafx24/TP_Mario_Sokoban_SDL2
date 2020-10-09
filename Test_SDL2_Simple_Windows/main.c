@@ -36,6 +36,10 @@ int main(int argc, char* argv[]) {
 
 	SDL_Delay(3000);  // Pause execution for 3000 milliseconds, for example
 
+	SDL_SetWindowSize(window, 1000, 1000);
+
+	SDL_Delay(3000);
+
 	// Close and destroy the window
 	SDL_DestroyWindow(window);
 

@@ -18,32 +18,14 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="New_Fichier.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_GetLine.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GEM_OK.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main_2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Test_GetLine.h">
+    <ClInclude Include="constantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="sokoban.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="Level.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Taille.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
