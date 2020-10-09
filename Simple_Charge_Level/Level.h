@@ -1,7 +1,7 @@
-#ifndef DEF_JEU
-#define DEF_JEU
-
-void GetMainInfoSokobanFile(int ArrayLevelSokoban[NumberRowSokobanLevel][NumberColSokobanLevel]);
+#ifndef DEF_LEVEL
+#define DEF_LEVEL
+// chiffre 8 et 4 a remplacer par constante
+void GetMainInfoSokobanFile(int ArrayLevelSokoban[8][4]);
 void GetMapInfo(int **carte, int col, int Curseur);
 
 #endif

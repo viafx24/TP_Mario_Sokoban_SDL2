@@ -63,14 +63,14 @@ void GetMapInfo(int **carte, int col, int Curseur)
 }
 
 
-void GetMainInfoSokobanFile(int ArrayLevelSokoban[NumberRowSokobanLevel][NumberColSokobanLevel])
+void GetMainInfoSokobanFile(int ArrayLevelSokoban[8][4])
 {
 	FILE *stream;
 
 	char str[60];
 	int Height = 0;
 	int Length = 0;
-	long BeginArray[8] = { 0 };
+	long BeginArray[9] = { 0 };
 
 	// first loop to get the correct size of each sokoban and write it in a file.
 	int NumberSokoban = 0;

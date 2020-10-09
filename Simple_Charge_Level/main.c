@@ -4,13 +4,13 @@
 #include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
-
+#include "Level.h"
 #include "constantes.h"
 
 
 int main(int argc, char *argv[])
 {
-	int ArrayLevelSokoban[NumberRowSokobanLevel][NumberColSokobanLevel] = { 0 };
+	int ArrayLevelSokoban[8][4] = { 0 };
 
 	GetMainInfoSokobanFile(ArrayLevelSokoban);
 
