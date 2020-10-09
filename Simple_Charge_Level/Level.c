@@ -8,7 +8,7 @@ void GetMapInfo(int **carte, int col, int Curseur)
 {
 	FILE *stream;
 	char str[60];
-	stream = fopen("Sokoban.txt", "r+");
+	stream = fopen("Sokoban.txt", "r");
 
 	if (stream == NULL)
 	{
