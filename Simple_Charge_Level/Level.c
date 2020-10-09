@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "constantes.h"
 
 void GetMapInfo(int **carte, int col, int Curseur)

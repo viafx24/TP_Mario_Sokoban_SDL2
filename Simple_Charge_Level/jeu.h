@@ -10,9 +10,7 @@ Rôle : prototypes des fonctions du jeu.
 #ifndef DEF_JEU
 #define DEF_JEU
 
-    void jouer(SDL_Window* win, SDL_Renderer* rend);
-    void deplacerJoueur(int carte[][NB_BLOCS_HAUTEUR], SDL_Rect *pos, int direction);
-    void deplacerCaisse(int *premiereCase, int *secondeCase);
+void jouer(int ArrayLevelSokoban[8][4], int Level);
 
 
 #endif
