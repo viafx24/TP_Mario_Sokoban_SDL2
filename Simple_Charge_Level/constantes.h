@@ -17,6 +17,9 @@ Rôle : définit des constantes communes à tout le programme (taille de la fenêtre
     #define HAUTEUR_FENETRE     TAILLE_BLOC * NB_BLOCS_HAUTEUR
 
 
+	#define NumberRowSokobanLevel 8
+	#define NumberColSokobanLevel 4
+
     enum {HAUT, BAS, GAUCHE, DROITE};
     enum {VIDE, MUR, CAISSE, OBJECTIF, MARIO, CAISSE_OK};
 

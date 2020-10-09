@@ -18,14 +18,55 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="jeu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="jeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level.txt">
+    <Image Include="caisse.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="caisse_ok.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mario_bas.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mario_droite.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mario_gauche.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mario_haut.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="menu.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mur.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="objectif.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Sokoban.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

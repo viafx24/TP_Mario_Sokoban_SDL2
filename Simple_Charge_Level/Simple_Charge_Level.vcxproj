@@ -143,13 +143,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="jeu.c" />
+    <ClCompile Include="Level.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constantes.h" />
+    <ClInclude Include="jeu.h" />
+    <ClInclude Include="Level.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Level.txt" />
+    <Image Include="caisse.jpg" />
+    <Image Include="caisse_ok.jpg" />
+    <Image Include="mario_bas.gif" />
+    <Image Include="mario_droite.gif" />
+    <Image Include="mario_gauche.gif" />
+    <Image Include="mario_haut.gif" />
+    <Image Include="menu.jpg" />
+    <Image Include="mur.jpg" />
+    <Image Include="objectif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Sokoban.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
