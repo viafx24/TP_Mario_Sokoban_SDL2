@@ -105,9 +105,11 @@ void GetMainInfoSokobanFile(int ArrayLevelSokoban[8][4])
 				Length = 0;
 				Compteur++;
 			}
-			//	printf("longueur de ligne identique?%d\n",strlen(str));
-			Length = strlen(str) - 1;
-			Height++;
+			else {
+				printf("longueur de ligne identique?%d\n", strlen(str));
+				Length = strlen(str) - 1;
+				Height++;
+			}
 		}
 
 		// fseek(stream, 2005, SEEK_SET);

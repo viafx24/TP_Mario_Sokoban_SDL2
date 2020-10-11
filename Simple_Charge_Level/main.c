@@ -92,42 +92,42 @@ int main(int argc, char *argv[])
 				break;
 			case SDL_SCANCODE_KP_1: // Demande à jouer
 				jouer(ArrayLevelSokoban,1);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_2: // Demande à jouer
 				jouer(ArrayLevelSokoban, 2);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_3: // Demande à jouer
 				jouer(ArrayLevelSokoban, 3);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_4: // Demande à jouer
 				jouer(ArrayLevelSokoban, 4);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_5: // Demande à jouer
 				jouer(ArrayLevelSokoban, 5);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_6: // Demande à jouer
 				jouer(ArrayLevelSokoban, 6);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_7: // Demande à jouer
 				jouer(ArrayLevelSokoban, 7);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			case SDL_SCANCODE_KP_8: // Demande à jouer
 				jouer(ArrayLevelSokoban, 8);
-				continuer = 0;
+				//continuer = 0;
 				break;
 			}
 			break;
 		}
 	}
 
-	SDL_DestroyTexture(texture_screen);	
+	SDL_DestroyTexture(texture_screen);
 	TTF_CloseFont(police);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(win);

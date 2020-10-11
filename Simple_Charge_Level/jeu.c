@@ -7,6 +7,9 @@
 #include "constantes.h"
 //#include "jeu.h"
 
+void deplacerJoueur(int **carte, SDL_Rect *pos, int direction, int col, int row);
+void deplacerCaisse(int *premiereCase, int *secondeCase);
+
 void jouer(int ArrayLevelSokoban[8][4], int Level)
 {
 
@@ -23,7 +26,7 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 
 	GetMapInfo(carte, col, Curseur);
 
-	SDL_Window* win = SDL_CreateWindow("Mario Sokoban", // creates a window 
+	SDL_Window* win_2 = SDL_CreateWindow("Mario Sokoban", // creates a window 
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		TAILLE_BLOC * row, TAILLE_BLOC * col, 0);
@@ -33,14 +36,14 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 	Uint32 render_flags = SDL_RENDERER_ACCELERATED;
 
 	// creates a renderer to render our images 
-	SDL_Renderer* rend = SDL_CreateRenderer(win, -1, render_flags);
+	SDL_Renderer* rend = SDL_CreateRenderer(win_2, -1, render_flags);
 
 
 	SDL_Surface *mario[4] = { NULL }; // 4 surfaces pour chacune des directions de mario
 	SDL_Surface *mur = NULL, *caisse = NULL, *caisseOK = NULL, *objectif = NULL, *marioActuel = NULL;
 
 	SDL_Rect position, positionJoueur;
-	SDL_Event event;
+	SDL_Event event_2;
 
 	position.w = 1 * TAILLE_BLOC;
 	position.h = 1 * TAILLE_BLOC;
@@ -96,81 +99,207 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 	}
 
 
-
-	// Effacement de l'écran
-	SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
-	SDL_RenderClear(rend);
-
-	// Placement des objets à l'écran
-	objectifsRestants = 0;
-
-	for (i = 0; i < row; i++)
+	while (continuer)
 	{
-		for (j = 0; j < col; j++)
+		SDL_WaitEvent(&event_2);
+		switch (event_2.type)
 		{
-			position.x = i * TAILLE_BLOC;
-			position.y = j * TAILLE_BLOC;
-
-			switch (carte[i][j])
+		case SDL_QUIT:
+			continuer = 0;
+			break;
+		case SDL_KEYDOWN:
+			switch (event_2.key.keysym.scancode)
 			{
-			case MUR:
-				SDL_QueryTexture(murTex, NULL, NULL, &position.w, &position.h);
-				SDL_RenderCopy(rend, murTex, NULL, &position);
-
+			case SDL_SCANCODE_ESCAPE:
+				continuer = 0;
 				break;
-			case CAISSE:
-				SDL_QueryTexture(caisseTex, NULL, NULL, &position.w, &position.h);
-				SDL_RenderCopy(rend, caisseTex, NULL, &position);
-
+			case SDL_SCANCODE_UP:
+				marioActuel = marioTexHAUT;
+				//				continuer = 0;
+				deplacerJoueur(carte, &positionJoueur, HAUT, col, row);
 				break;
-			case CAISSE_OK:
-				SDL_QueryTexture(caisseOKTex, NULL, NULL, &position.w, &position.h);
-				SDL_RenderCopy(rend, caisseOKTex, NULL, &position);
-
+			case SDL_SCANCODE_DOWN:
+				marioActuel = marioTexBAS;
+				deplacerJoueur(carte, &positionJoueur, BAS, col, row);
 				break;
-			case OBJECTIF:
-				SDL_QueryTexture(objectifTex, NULL, NULL, &position.w, &position.h);
-				SDL_RenderCopy(rend, objectifTex, NULL, &position);
-				objectifsRestants = 1;
+			case SDL_SCANCODE_RIGHT:
+				marioActuel = marioTexDROITE;
+				deplacerJoueur(carte, &positionJoueur, DROITE, col, row);
+				break;
+			case SDL_SCANCODE_LEFT:
+				marioActuel = marioTexGAUCHE;
+				deplacerJoueur(carte, &positionJoueur, GAUCHE, col, row);
 				break;
 			}
+			break;
 		}
+		// Effacement de l'écran
+		SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
+		SDL_RenderClear(rend);
+
+		// Placement des objets à l'écran
+		objectifsRestants = 0;
+
+		for (i = 0; i < row; i++)
+		{
+			for (j = 0; j < col; j++)
+			{
+				position.x = i * TAILLE_BLOC;
+				position.y = j * TAILLE_BLOC;
+
+				switch (carte[i][j])
+				{
+				case MUR:
+					SDL_QueryTexture(murTex, NULL, NULL, &position.w, &position.h);
+					SDL_RenderCopy(rend, murTex, NULL, &position);
+
+					break;
+				case CAISSE:
+					SDL_QueryTexture(caisseTex, NULL, NULL, &position.w, &position.h);
+					SDL_RenderCopy(rend, caisseTex, NULL, &position);
+
+					break;
+				case CAISSE_OK:
+					SDL_QueryTexture(caisseOKTex, NULL, NULL, &position.w, &position.h);
+					SDL_RenderCopy(rend, caisseOKTex, NULL, &position);
+
+					break;
+				case OBJECTIF:
+					SDL_QueryTexture(objectifTex, NULL, NULL, &position.w, &position.h);
+					SDL_RenderCopy(rend, objectifTex, NULL, &position);
+					objectifsRestants = 1;
+					break;
+				}
+			}
+		}
+
+		// Si on n'a trouvé aucun objectif sur la carte, c'est qu'on a gagné
+		if (!objectifsRestants)
+			continuer = 0;
+
+		// On place le joueur à la bonne position
+		position.x = positionJoueur.x * TAILLE_BLOC;
+		position.y = positionJoueur.y * TAILLE_BLOC;
+
+		SDL_QueryTexture(marioActuel, NULL, NULL, &position.w, &position.h);
+		SDL_RenderCopy(rend, marioActuel, NULL, &position);
+		SDL_RenderPresent(rend);
+
 	}
-
-	// Si on n'a trouvé aucun objectif sur la carte, c'est qu'on a gagné
-	if (!objectifsRestants)
-		continuer = 0;
-
-	// On place le joueur à la bonne position
-	position.x = positionJoueur.x * TAILLE_BLOC;
-	position.y = positionJoueur.y * TAILLE_BLOC;
-
-	SDL_QueryTexture(marioActuel, NULL, NULL, &position.w, &position.h);
-	SDL_RenderCopy(rend, marioActuel, NULL, &position);
-	SDL_RenderPresent(rend);
-
-
-
-	// calculates to 60 fps 
-//	SDL_Delay(1000 / 60);
-
-	SDL_Delay(10000);  // Pause execution for 3000 milliseconds, for example
-
-	// destroy texture 
-//	SDL_DestroyTexture(tex);
-
+//
+//	// calculates to 60 fps 
+////	SDL_Delay(1000 / 60);
+//
+//	SDL_Delay(10000);  // Pause execution for 3000 milliseconds, for example
+//
+//	// destroy texture 
+////	SDL_DestroyTexture(tex);
+//
 	// destroy renderer 
 	SDL_DestroyRenderer(rend);
 
 	// destroy window 
-	SDL_DestroyWindow(win);
+	SDL_DestroyWindow(win_2);
 
 	return 0;
-
+//
 
 }
 
 
+
+void deplacerJoueur(int **carte, SDL_Rect *pos, int direction, int col, int row)
+{
+	switch (direction)
+	{
+	case HAUT:
+		if (pos->y - 1 < 0) // Si le joueur dépasse l'écran, on arrête
+			break;
+		if (carte[pos->x][pos->y - 1] == MUR) // S'il y a un mur, on arrête
+			break;
+		// Si on veut pousser une caisse, il faut vérifier qu'il n'y a pas de mur derrière (ou une autre caisse, ou la limite du monde)
+		if ((carte[pos->x][pos->y - 1] == CAISSE || carte[pos->x][pos->y - 1] == CAISSE_OK) &&
+			(pos->y - 2 < 0 || carte[pos->x][pos->y - 2] == MUR ||
+				carte[pos->x][pos->y - 2] == CAISSE || carte[pos->x][pos->y - 2] == CAISSE_OK))
+			break;
+
+		// Si on arrive là, c'est qu'on peut déplacer le joueur !
+		// On vérifie d'abord s'il y a une caisse à déplacer
+		deplacerCaisse(&carte[pos->x][pos->y - 1], &carte[pos->x][pos->y - 2]);
+
+		pos->y--; // On peut enfin faire monter le joueur (oufff !)
+		break;
+
+
+	case BAS:
+		if (pos->y + 1 >= col)
+			break;
+		if (carte[pos->x][pos->y + 1] == MUR)
+			break;
+
+		if ((carte[pos->x][pos->y + 1] == CAISSE || carte[pos->x][pos->y + 1] == CAISSE_OK) &&
+			(pos->y + 2 >= col || carte[pos->x][pos->y + 2] == MUR ||
+				carte[pos->x][pos->y + 2] == CAISSE || carte[pos->x][pos->y + 2] == CAISSE_OK))
+			break;
+
+
+		deplacerCaisse(&carte[pos->x][pos->y + 1], &carte[pos->x][pos->y + 2]);
+
+		pos->y++;
+		break;
+
+
+	case GAUCHE:
+		if (pos->x - 1 < 0)
+			break;
+		if (carte[pos->x - 1][pos->y] == MUR)
+			break;
+
+		if ((carte[pos->x - 1][pos->y] == CAISSE || carte[pos->x - 1][pos->y] == CAISSE_OK) &&
+			(pos->x - 2 < 0 || carte[pos->x - 2][pos->y] == MUR ||
+				carte[pos->x - 2][pos->y] == CAISSE || carte[pos->x - 2][pos->y] == CAISSE_OK))
+			break;
+
+
+		deplacerCaisse(&carte[pos->x - 1][pos->y], &carte[pos->x - 2][pos->y]);
+
+		pos->x--;
+		break;
+
+
+	case DROITE:
+		if (pos->x + 1 >= row)
+			break;
+		if (carte[pos->x + 1][pos->y] == MUR)
+			break;
+
+		if ((carte[pos->x + 1][pos->y] == CAISSE || carte[pos->x + 1][pos->y] == CAISSE_OK) &&
+			(pos->x + 2 >= row || carte[pos->x + 2][pos->y] == MUR ||
+				carte[pos->x + 2][pos->y] == CAISSE || carte[pos->x + 2][pos->y] == CAISSE_OK))
+			break;
+
+		deplacerCaisse(&carte[pos->x + 1][pos->y], &carte[pos->x + 2][pos->y]);
+
+		pos->x++;
+		break;
+	}
+}
+
+void deplacerCaisse(int *premiereCase, int *secondeCase)
+{
+	if (*premiereCase == CAISSE || *premiereCase == CAISSE_OK)
+	{
+		if (*secondeCase == OBJECTIF)
+			*secondeCase = CAISSE_OK;
+		else
+			*secondeCase = CAISSE;
+
+		if (*premiereCase == CAISSE_OK)
+			*premiereCase = OBJECTIF;
+		else
+			*premiereCase = VIDE;
+	}
+}
 
 
 
