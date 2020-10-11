@@ -9,6 +9,8 @@
 #include "constantes.h"
 #include "jeu.h"
 
+void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Rect dstrect);
+
 int main(int argc, char *argv[])
 {
 	int ArrayLevelSokoban[8][4] = { 0 };
@@ -27,85 +29,48 @@ int main(int argc, char *argv[])
 	Uint32 render_flags = SDL_RENDERER_ACCELERATED;
 	SDL_Renderer *renderer = SDL_CreateRenderer(win, -1, render_flags);
 
-	TTF_Init();
+	SDL_Surface *text_surface, *screen;
+	screen = SDL_CreateRGBSurface(0, TAILLE_BLOC * 21, TAILLE_BLOC * 21, 32, 0, 0, 0, 0);
+	SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
+	SDL_Texture *texture_screen = SDL_CreateTextureFromSurface(renderer, screen);
+	SDL_FreeSurface(screen);
+	SDL_Rect dsscreen = { 0,0,714,714 };
+	
+	SDL_QueryTexture(texture_screen, NULL, NULL, &dsscreen.w, &dsscreen.h);
+	SDL_RenderCopy(renderer, texture_screen, NULL, &dsscreen);
 
+	TTF_Init();
 	TTF_Font *police = NULL;
-	police = TTF_OpenFont("angelina.ttf", 64);
+	police = TTF_OpenFont("angelina.ttf", 46);
 	if (!police) {
 		printf("error");
 	}
 
-	/*TTF_Font * font = TTF_OpenFont("arial.ttf", 25);*/
-	//SDL_Color color = { 255, 255, 255 };
-	//SDL_Surface *surface = TTF_RenderText_Solid(police,
-	//	"Welcome to Gigi Labs", color);
 
-	
+	SDL_Rect dstrect = { 135,50,0,0 };
 
-	/*SDL_Color color = { 255, 255, 255 };
-	SDL_Surface * surface = TTF_RenderText_Solid(police,
-		"Welcome to Gigi Labs", color);*/
-
-	SDL_Color black = { 0,0,0 };
-	SDL_Surface *text_surface, *screen;
-
-	screen = SDL_CreateRGBSurface(0, TAILLE_BLOC * 21, TAILLE_BLOC * 21, 32, 0, 0, 0, 0);
-
-	SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
-
-	//s = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
-
-	/* Filling the surface with red color. */
-	//SDL_FillRect(s, NULL, SDL_MapRGB(s->format, 255, 0, 0));
-
-
-
-	const char Test[] = "text";
-	text_surface = TTF_RenderText_Blended(police, Test, black);
-
-	SDL_Texture *texture_screen = SDL_CreateTextureFromSurface(renderer, screen);
-
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, text_surface);
+	DrawText(renderer, police, "Bienvenue sur Mario Sokoban!", dstrect);
+	dstrect.y = dstrect.y + 100;
+	DrawText(renderer, police, "Pour le niveau 1, taper 1 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 2, taper 2 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 3, taper 3 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 4, taper 4 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 5, taper 5 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 6, taper 6 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 7, taper 7 !", dstrect);
+	dstrect.y = dstrect.y + 50;
+	DrawText(renderer, police, "Pour le niveau 8, taper 8 !", dstrect);
+	dstrect.y = dstrect.y + 100;
+	DrawText(renderer, police, "Pour quitter, taper q !", dstrect);
 
 
-
-	//int texW = 100;
-	//int texH = 100;
-	SDL_Rect dsscreen = { 0,0,714,714 };
-	SDL_Rect dstrect = { 200,200,0,0 };
-	//dstrect.x = 200;
-	//dstrect.y = 200;
-	//dstrect.w = 0;
-	//dstrect.h = 0;
-
-	SDL_QueryTexture(texture_screen, NULL, NULL, &dsscreen.w, &dsscreen.h);
-	SDL_QueryTexture(texture, NULL, NULL, &dstrect.w, &dstrect.h);
-	//SDL_Rect dstrect = { 0, 0, texW,texH  };
-	
-	/*dstrect.x = 20;
-	dstrect.y = 20;*/
-
-	SDL_RenderCopy(renderer, texture_screen, NULL, &dsscreen);
-	SDL_RenderCopy(renderer, texture, NULL, &dstrect);
 	SDL_RenderPresent(renderer);
-
-	//SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
-	//DrawText(screen,police, "test");
-
-	
-
-	//position.x = 0;
-	//position.y = 0;
-	//SDL_BlitSurface(fond, NULL, ecran, &position); /* Blit du fond */
-
-	//position.x = 60;
-	//position.y = 370;
-	//SDL_BlitSurface(texte, NULL, ecran, &position); /* Blit du texte */
-	/*SDL_Flip(screen);*/
-
-
-
-
 
 
 	int continuer = 1;
@@ -162,27 +127,30 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	SDL_DestroyTexture(texture_screen);	
+	TTF_CloseFont(police);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(win);
+	TTF_Quit();
+	SDL_Quit();
+
 	return 0;
+
 
 }
 
-int DrawText(SDL_Surface* screen, TTF_Font* font, const char* text)
+void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Rect dstrect)
 {
 	SDL_Color black = { 0,0,0 };
 	SDL_Surface *text_surface;
 
-	text_surface = TTF_RenderText_Blended(font, text, black);
-	if (text_surface != NULL)
-	{
-		SDL_BlitSurface(text_surface, NULL, screen, NULL);
-		SDL_FreeSurface(text_surface);
-		return 0;
-	}
-	else
-	{
-		// report error
-		return 1;
-	}
+	text_surface = TTF_RenderText_Blended(police, text, black);
+	SDL_Texture *texture_text = SDL_CreateTextureFromSurface(renderer, text_surface);
+	SDL_FreeSurface(text_surface);
+	SDL_QueryTexture(texture_text, NULL, NULL, &dstrect.w, &dstrect.h);
+	SDL_RenderCopy(renderer, texture_text, NULL, &dstrect);
+	SDL_DestroyTexture(texture_text);
 }
 
-// cart à rajouter dans les arguments. colonne et fenetre change à chaque event. Compatible SDL?
+
+
