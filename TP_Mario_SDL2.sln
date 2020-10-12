@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TP_Mario_SDL2", "TP_Mario_SDL2\TP_Mario_SDL2.vcxproj", "{7B905599-2D32-4A80-968A-06D0200754CA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_SDL2_Simple_Windows", "Test_SDL2_Simple_Windows\Test_SDL2_Simple_Windows.vcxproj", "{D0695569-563E-4D7C-BE59-685454E84007}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simple_Charge_Level", "Simple_Charge_Level\Simple_Charge_Level.vcxproj", "{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Testing_SDL_mixer", "Testing_SDL_mixer\Testing_SDL_mixer.vcxproj", "{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}.Release|x64.Build.0 = Release|x64
 		{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}.Release|x86.ActiveCfg = Release|Win32
 		{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}.Release|x86.Build.0 = Release|Win32
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Debug|x64.ActiveCfg = Debug|x64
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Debug|x64.Build.0 = Debug|x64
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Debug|x86.ActiveCfg = Debug|Win32
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Debug|x86.Build.0 = Debug|Win32
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Release|x64.ActiveCfg = Release|x64
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Release|x64.Build.0 = Release|x64
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Release|x86.ActiveCfg = Release|Win32
+		{FE35B131-1C57-48C8-9B73-FF22C06FEBE7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
