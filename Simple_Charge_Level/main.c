@@ -5,10 +5,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include "Level.h"
 #include "constantes.h"
 #include "jeu.h"
 #include "main.h"
+
 
 //void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Rect dstrect);
 
@@ -74,6 +76,18 @@ int main(int argc, char *argv[])
 	SDL_RenderPresent(renderer);
 
 
+// Gestion of the music
+	Mix_Music *music = NULL;
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 4096) == -1)
+		return -1;
+	music = Mix_LoadMUS(MUS_PATH);
+	if (music == NULL)
+		return -1;
+	Mix_PlayMusic(music, -1);
+
+// gestion of the events
+
+
 	int continuer = 1;
 	SDL_Event event; // un autre le met juste aprés le while.
 
@@ -128,11 +142,15 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	SDL_DestroyTexture(texture_screen);
+	Mix_FreeMusic(music);
+	Mix_CloseAudio();
+
 	TTF_CloseFont(police);
+	TTF_Quit();
+
+	SDL_DestroyTexture(texture_screen);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(win);
-	TTF_Quit();
 	SDL_Quit();
 
 	return 0;
@@ -154,4 +172,56 @@ void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Re
 }
 
 
-
+//
+////
+////
+//// Our wave file
+//Mix_Chunk *wave = NULL;
+//// Our music file
+//Mix_Music *music = NULL;
+//
+//
+//int main(int argc, char* argv[]) {
+//
+//	// Initialize SDL.
+//	if (SDL_Init(SDL_INIT_AUDIO) < 0)
+//		return -1;
+//
+//	//Initialize SDL_mixer 
+//	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 4096) == -1)
+//		return -1;
+//
+//	//if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1) //Initialisation de l'API Mixer
+//	//{
+//	//	printf("%s", Mix_GetError());
+//	//}
+//
+//
+//
+//	// Load our sound effect
+//	wave = Mix_LoadWAV(WAV_PATH);
+//	if (wave == NULL)
+//		return -1;
+//
+//	// Load our music
+//	music = Mix_LoadMUS(MUS_PATH);
+//	if (music == NULL)
+//		return -1;
+//
+//	if (Mix_PlayChannel(-1, wave, 0) == -1)
+//		return -1;
+//
+//	if (Mix_PlayMusic(music, -1) == -1)
+//		return -1;
+//
+//	while (Mix_PlayingMusic());
+//
+//	// clean up our resources
+//	Mix_FreeChunk(wave);
+//	Mix_FreeMusic(music);
+//
+//	// quit SDL_mixer
+//	Mix_CloseAudio();
+//
+//	return 0;
+//}

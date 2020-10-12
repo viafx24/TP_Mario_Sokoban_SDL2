@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include "Level.h"
 #include "constantes.h"
 #include "main.h"
@@ -183,7 +184,7 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 		}
 
 		// Si on n'a trouvé aucun objectif sur la carte, c'est qu'on a gagné
-//		objectifsRestants = 0;
+		objectifsRestants = 0;
 		if (!objectifsRestants)
 		{
 			DisplayWindowsWin(win_2, rend, Level, row, col);
@@ -316,13 +317,7 @@ void deplacerCaisse(int *premiereCase, int *secondeCase)
 
 void DisplayWindowsWin(SDL_Window* win_2, SDL_Renderer* rend, int Level, int row, int col)
 {
-	//SDL_Window* win_3 = SDL_CreateWindow("Bravo!", // creates a window 
-	//	SDL_WINDOWPOS_CENTERED,
-	//	SDL_WINDOWPOS_CENTERED,
-	//	TAILLE_BLOC * 21, TAILLE_BLOC * 21, 0);
 
-	//Uint32 render_flags_2 = SDL_RENDERER_ACCELERATED;
-	//SDL_Renderer *renderer_2 = SDL_CreateRenderer(win_3, -1, render_flags_2);
 
 	SDL_Surface *text_surface_2, *screen_2;
 	screen_2 = SDL_CreateRGBSurface(0, TAILLE_BLOC * row, TAILLE_BLOC * col, 32, 0, 0, 0, 0);
@@ -358,7 +353,18 @@ void DisplayWindowsWin(SDL_Window* win_2, SDL_Renderer* rend, int Level, int row
 
 	SDL_RenderPresent(rend);
 
-	SDL_Delay(2200);
+	Mix_Chunk *wave = NULL;
+	wave = Mix_LoadWAV(WAV_PATH);
+	if (wave == NULL)
+		return -1;
+
+	if (Mix_PlayChannel(-1, wave, 0) == -1)
+		return -1;
+
+
+	SDL_Delay(4000);
+
+	Mix_FreeChunk(wave);
 
 	SDL_DestroyTexture(texture_screen_2);
 	SDL_DestroyRenderer(rend);

@@ -16,7 +16,8 @@ Rôle : définit des constantes communes à tout le programme (taille de la fenêtre
     //#define LARGEUR_FENETRE     TAILLE_BLOC * NB_BLOCS_LARGEUR
     //#define HAUTEUR_FENETRE     TAILLE_BLOC * NB_BLOCS_HAUTEUR
 
-
+	#define WAV_PATH "applause2.wav"
+	#define MUS_PATH "JAZZ_30.mp3"
 	#define NumberRowSokobanLevel 8
 	#define NumberColSokobanLevel 4
 
