@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 	dstrect.y = dstrect.y + 50;
 	DrawText(renderer, police, "Pour le niveau 8, taper 8 !", dstrect);
 	dstrect.y = dstrect.y + 100;
-	DrawText(renderer, police, "Pour quitter, taper q !", dstrect);
+	DrawText(renderer, police, "Pour quitter, taper Echap !", dstrect);
 
 
 	SDL_RenderPresent(renderer);

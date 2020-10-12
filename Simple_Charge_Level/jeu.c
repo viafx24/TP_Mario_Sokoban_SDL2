@@ -106,34 +106,9 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 	while (continuer)
 	{
 		SDL_WaitEvent(&event_2);
-		//if (event_2.type == 256)
-		//	printf("test");
-		printf("%d", event_2.type);
-
-		if (event_2.type == SDL_WINDOWEVENT)
-		{
-			printf("%d", event_2.window.event);
-			//printf("%d", event_2.window.event);
-		}
-
 
 		switch (event_2.type)
 		{
-			//printf("%d", event_2.window.event);
-			//if (event_2.type == SDL_WINDOWEVENT
-			//	&& event_2.window.event == SDL_WINDOWEVENT_CLOSE)
-			//{
-			//	continuer = 0;
-			//	break;
-			//}
-
-			//printf("%d", event_2.window.event);
-
-
-
-
-
-
 		case SDL_WINDOWEVENT: // for unknwon reason the classic SQL_QUIT doesn't work; code 512
 			switch (event_2.window.event) // code 14
 			{

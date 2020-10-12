@@ -59,7 +59,20 @@ void GetMapInfo(int **carte, int col, int Curseur)
 			}
 		}
 	}
+
+	int err_1 = fclose(stream);
+
+	if (err_1 == 0)
+	{
+		printf("File closed");
+	}
+
+	else
+	{
+		printf("problem closing file");
+	}
 }
+
 
 
 void GetMainInfoSokobanFile(int ArrayLevelSokoban[8][4])
