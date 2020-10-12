@@ -1,14 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
-
+#include <SDL_ttf.h>
 #include "Level.h"
 #include "constantes.h"
+#include "main.h"
+
 //#include "jeu.h"
 
 void deplacerJoueur(int **carte, SDL_Rect *pos, int direction, int col, int row);
 void deplacerCaisse(int *premiereCase, int *secondeCase);
+void DisplayWindowsWin(SDL_Window* win_2, SDL_Renderer* rend, int Level, int row, int col);
 
 void jouer(int ArrayLevelSokoban[8][4], int Level)
 {
@@ -102,11 +106,41 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 	while (continuer)
 	{
 		SDL_WaitEvent(&event_2);
+		//if (event_2.type == 256)
+		//	printf("test");
+		printf("%d", event_2.type);
+
+		if (event_2.type == SDL_WINDOWEVENT)
+		{
+			printf("%d", event_2.window.event);
+			//printf("%d", event_2.window.event);
+		}
+
+
 		switch (event_2.type)
 		{
-		case SDL_QUIT:
-			continuer = 0;
-			break;
+			//printf("%d", event_2.window.event);
+			//if (event_2.type == SDL_WINDOWEVENT
+			//	&& event_2.window.event == SDL_WINDOWEVENT_CLOSE)
+			//{
+			//	continuer = 0;
+			//	break;
+			//}
+
+			//printf("%d", event_2.window.event);
+
+
+
+
+
+
+		case SDL_WINDOWEVENT: // for unknwon reason the classic SQL_QUIT doesn't work; code 512
+			switch (event_2.window.event) // code 14
+			{
+			case SDL_WINDOWEVENT_CLOSE:
+				continuer = 0;
+				break;
+			}
 		case SDL_KEYDOWN:
 			switch (event_2.key.keysym.scancode)
 			{
@@ -174,9 +208,12 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 		}
 
 		// Si on n'a trouvé aucun objectif sur la carte, c'est qu'on a gagné
+//		objectifsRestants = 0;
 		if (!objectifsRestants)
+		{
+			DisplayWindowsWin(win_2, rend, Level, row, col);
 			continuer = 0;
-
+		}
 		// On place le joueur à la bonne position
 		position.x = positionJoueur.x * TAILLE_BLOC;
 		position.y = positionJoueur.y * TAILLE_BLOC;
@@ -300,6 +337,88 @@ void deplacerCaisse(int *premiereCase, int *secondeCase)
 			*premiereCase = VIDE;
 	}
 }
+
+
+void DisplayWindowsWin(SDL_Window* win_2, SDL_Renderer* rend, int Level, int row, int col)
+{
+	//SDL_Window* win_3 = SDL_CreateWindow("Bravo!", // creates a window 
+	//	SDL_WINDOWPOS_CENTERED,
+	//	SDL_WINDOWPOS_CENTERED,
+	//	TAILLE_BLOC * 21, TAILLE_BLOC * 21, 0);
+
+	//Uint32 render_flags_2 = SDL_RENDERER_ACCELERATED;
+	//SDL_Renderer *renderer_2 = SDL_CreateRenderer(win_3, -1, render_flags_2);
+
+	SDL_Surface *text_surface_2, *screen_2;
+	screen_2 = SDL_CreateRGBSurface(0, TAILLE_BLOC * row, TAILLE_BLOC * col, 32, 0, 0, 0, 0);
+	SDL_FillRect(screen_2, NULL, SDL_MapRGB(screen_2->format, 255, 255, 255));
+	SDL_Texture *texture_screen_2 = SDL_CreateTextureFromSurface(rend, screen_2);
+	SDL_FreeSurface(screen_2);
+	SDL_Rect dsscreen_2 = { 0,0,0,0 };
+
+	SDL_QueryTexture(texture_screen_2, NULL, NULL, &dsscreen_2.w, &dsscreen_2.h);
+	SDL_RenderCopy(rend, texture_screen_2, NULL, &dsscreen_2);
+
+	//TTF_Init();
+	TTF_Font *police_2 = NULL;
+	police_2 = TTF_OpenFont("angelina.ttf", 46);
+	if (!police_2) {
+		printf("error");
+	}
+
+	SDL_Rect dstrect_2 = { (TAILLE_BLOC * col/2)-175,(TAILLE_BLOC * row)/2-100,0,0 };
+
+	DrawText(rend, police_2, "Bravo tu as réussi !!!", dstrect_2);
+	dstrect_2.y = dstrect_2.y + 100;
+
+	char src[50], dest[50];
+
+   strcpy(dest, "Passe au niveau ");
+   itoa(Level + 1, src, 10);
+   //strcpy(src, itoa(Level + 1));
+
+	strcat(dest,src);
+	DrawText(rend, police_2, dest, dstrect_2);
+
+
+	SDL_RenderPresent(rend);
+
+	SDL_Delay(2200);
+
+	SDL_DestroyTexture(texture_screen_2);
+	SDL_DestroyRenderer(rend);
+	SDL_DestroyWindow(win_2);
+
+}
+
+	//char src[50], dest[50];
+
+	//strcpy(src, "This is source");
+	//strcpy(dest, "This is destination");
+
+	//strcat(dest, src);
+
+
+
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 2, taper 2 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 3, taper 3 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 4, taper 4 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 5, taper 5 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 6, taper 6 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 7, taper 7 !", dstrect);
+	//dstrect.y = dstrect.y + 50;
+	//DrawText(renderer, police, "Pour le niveau 8, taper 8 !", dstrect);
+	//dstrect.y = dstrect.y + 100;
+	//DrawText(renderer, police, "Pour quitter, taper q !", dstrect);
+
+
+	
 
 
 

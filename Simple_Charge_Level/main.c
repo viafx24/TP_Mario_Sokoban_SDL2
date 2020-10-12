@@ -8,8 +8,9 @@
 #include "Level.h"
 #include "constantes.h"
 #include "jeu.h"
+#include "main.h"
 
-void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Rect dstrect);
+//void DrawText(SDL_Renderer *renderer, TTF_Font* police, const char* text, SDL_Rect dstrect);
 
 int main(int argc, char *argv[])
 {

@@ -153,6 +153,7 @@
     <ClInclude Include="constantes.h" />
     <ClInclude Include="jeu.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="caisse.jpg" />

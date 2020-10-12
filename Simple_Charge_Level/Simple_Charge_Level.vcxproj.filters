@@ -35,6 +35,9 @@
     <ClInclude Include="Level.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="caisse.jpg">
@@ -74,5 +77,6 @@
     <Font Include="arial.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+    <Font Include="angelina.TTF" />
   </ItemGroup>
 </Project>
