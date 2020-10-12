@@ -184,7 +184,7 @@ void jouer(int ArrayLevelSokoban[8][4], int Level)
 		}
 
 		// Si on n'a trouvé aucun objectif sur la carte, c'est qu'on a gagné
-		objectifsRestants = 0;
+//		objectifsRestants = 0;
 		if (!objectifsRestants)
 		{
 			DisplayWindowsWin(win_2, rend, Level, row, col);

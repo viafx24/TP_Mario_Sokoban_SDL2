@@ -177,6 +177,9 @@
     <Media Include="applause2.wav" />
     <Media Include="JAZZ_30.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ressources.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
