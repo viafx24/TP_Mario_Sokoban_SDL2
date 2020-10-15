@@ -14,7 +14,7 @@
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/ 
-[Rr]eleases/
+#[Rr]eleases/ # je commmente cela pour publier l'exe et le setup sur github
 x64/
 x86/
 bld/
