@@ -18,7 +18,12 @@ Rôle : définit des constantes communes à tout le programme (taille de la fenêtre
 
 	#define WAV_PATH "applause2.wav"
 	#define MUS_PATH "JAZZ_30.mp3"
-	#define NumberRowSokobanLevel 8
+
+// je ne me sert pas de ces deux lignes, j'ai eu un bug avec mais ce serait préferable
+// car ce serait plus propre. ca eviterait de changer le 8 partout dans le code si on ajoute des niveaux.
+
+	#define NumberRowSokobanLevel 8 
+
 	#define NumberColSokobanLevel 4
 
     enum {HAUT, BAS, GAUCHE, DROITE};
