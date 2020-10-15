@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30611.23
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simple_Charge_Level", "Simple_Charge_Level\Simple_Charge_Level.vcxproj", "{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mario_Sokoban_8_Levels", "Simple_Charge_Level\Simple_Charge_Level.vcxproj", "{7EEFFF4F-CA5F-4F8F-BCC3-E6F1923C1336}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{6C4BFCCF-2134-404F-A2B5-2AD13A2B56BE}"
 EndProject
@@ -28,6 +28,7 @@ Global
 		{6C4BFCCF-2134-404F-A2B5-2AD13A2B56BE}.Debug|x86.Build.0 = Debug
 		{6C4BFCCF-2134-404F-A2B5-2AD13A2B56BE}.Release|x64.ActiveCfg = Release
 		{6C4BFCCF-2134-404F-A2B5-2AD13A2B56BE}.Release|x86.ActiveCfg = Release
+		{6C4BFCCF-2134-404F-A2B5-2AD13A2B56BE}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

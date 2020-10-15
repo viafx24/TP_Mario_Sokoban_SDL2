@@ -13,7 +13,7 @@
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
+# [Rr]elease/ # commentaire de guillaume pour ajouter le dossier release
 [Rr]eleases/
 x64/
 x86/
