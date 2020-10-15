@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0C25026CF76048C6BE73F5633E0D1435"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_11594EC8A712468DA42A3C8824C43184"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -46,12 +40,6 @@
         "Entry"
         {
         "MsmKey" = "8:_1F92B41EE4714535B55114D840D798C5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_24AD841E4F554483AF3DEACBF39F4991"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -87,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_412FC767A51345108E3AE58D6AB2B56B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_42DE35CCB15C4371907B6128A608B3B9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -105,31 +87,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_55DABAE5123540EC8A16364403020030"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5C4512F62F334AE1B25B4FE14C65055E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7E9B116EFD234C59A67D75C6E28EBBB9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_8FA44A83F5A44E5D8DF4C63F0B92B25F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9536557CC4B14F2BB95D74A19A154BE7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -189,19 +147,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE67A49B12FF4BF59E1CEC8A6837ECF6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F4E2983620194563A788B6D77A1135F9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F87659D448584CCFB39F50B32F56899B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -223,6 +169,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -239,6 +193,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -300,26 +262,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C25026CF76048C6BE73F5633E0D1435"
-            {
-            "SourcePath" = "8:..\\Debug\\libFLAC-8.dll"
-            "TargetName" = "8:libFLAC-8.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11594EC8A712468DA42A3C8824C43184"
             {
             "SourcePath" = "8:..\\Debug\\SDL2_ttf.dll"
@@ -364,26 +306,6 @@
             {
             "SourcePath" = "8:..\\Debug\\libfreetype-6.dll"
             "TargetName" = "8:libfreetype-6.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_24AD841E4F554483AF3DEACBF39F4991"
-            {
-            "SourcePath" = "8:..\\Debug\\libvorbisfile-3.dll"
-            "TargetName" = "8:libvorbisfile-3.dll"
             "Tag" = "8:"
             "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
             "Condition" = "8:"
@@ -500,26 +422,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_412FC767A51345108E3AE58D6AB2B56B"
-            {
-            "SourcePath" = "8:..\\Debug\\libmodplug-1.dll"
-            "TargetName" = "8:libmodplug-1.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42DE35CCB15C4371907B6128A608B3B9"
             {
             "SourcePath" = "8:..\\Debug\\angelina.TTF"
@@ -544,86 +446,6 @@
             {
             "SourcePath" = "8:..\\Debug\\caisse.ico"
             "TargetName" = "8:caisse.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55DABAE5123540EC8A16364403020030"
-            {
-            "SourcePath" = "8:..\\Debug\\libwebp-7.dll"
-            "TargetName" = "8:libwebp-7.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C4512F62F334AE1B25B4FE14C65055E"
-            {
-            "SourcePath" = "8:..\\Debug\\libtiff-5.dll"
-            "TargetName" = "8:libtiff-5.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E9B116EFD234C59A67D75C6E28EBBB9"
-            {
-            "SourcePath" = "8:..\\Debug\\libopus-0.dll"
-            "TargetName" = "8:libopus-0.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9536557CC4B14F2BB95D74A19A154BE7"
-            {
-            "SourcePath" = "8:..\\Debug\\libogg-0.dll"
-            "TargetName" = "8:libogg-0.dll"
             "Tag" = "8:"
             "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
             "Condition" = "8:"
@@ -820,50 +642,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE67A49B12FF4BF59E1CEC8A6837ECF6"
-            {
-            "SourcePath" = "8:..\\Debug\\libvorbis-0.dll"
-            "TargetName" = "8:libvorbis-0.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4E2983620194563A788B6D77A1135F9"
             {
             "SourcePath" = "8:..\\Debug\\libpng16-16.dll"
             "TargetName" = "8:libpng16-16.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F87659D448584CCFB39F50B32F56899B"
-            {
-            "SourcePath" = "8:..\\Debug\\libopusfile-0.dll"
-            "TargetName" = "8:libopusfile-0.dll"
             "Tag" = "8:"
             "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
             "Condition" = "8:"
@@ -1084,7 +866,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_044E15E3164742C9A798651FACD0DC5B"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirmer l'installation"
+                    "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdConfirmDlg.wid"
@@ -1106,7 +888,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_5232570C78E5419A80B4E279E9C70DAC"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Bienvenue"
+                    "DisplayName" = "8:Welcome"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdWelcomeDlg.wid"
@@ -1154,7 +936,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_BCFADC35C4194C37ACEB1DEB388BCB11"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Dossier d'installation"
+                    "DisplayName" = "8:Installation Folder"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
@@ -1204,7 +986,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_2CA78EBBE3B846B18610291E4125BC59"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Terminé"
+                    "DisplayName" = "8:Finished"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
@@ -1248,7 +1030,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_22466C20302C4C278FDC1F8A817CE09C"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progression"
+                    "DisplayName" = "8:Progress"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminProgressDlg.wid"
@@ -1292,7 +1074,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_C98A106E90E846E1B4E287F01E891CC6"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progression"
+                    "DisplayName" = "8:Progress"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
@@ -1342,7 +1124,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_105E6CB41286436581AE4193869AEC63"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Bienvenue"
+                    "DisplayName" = "8:Welcome"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminWelcomeDlg.wid"
@@ -1390,7 +1172,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_5CE68052D9D140918C7027A1D5C051D5"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Dossier d'installation"
+                    "DisplayName" = "8:Installation Folder"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
@@ -1412,7 +1194,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_923E29B8C7E843D7982F5E76C83335AE"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirmer l'installation"
+                    "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
@@ -1443,7 +1225,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_5970101A01C446CA9D43E655BB36A5C0"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Terminé"
+                    "DisplayName" = "8:Finished"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFinishedDlg.wid"
@@ -1472,7 +1254,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8FA44A83F5A44E5D8DF4C63F0B92B25F"
             {
-            "SourcePath" = "8:..\\Debug\\Simple_Charge_Level.exe"
+            "SourcePath" = "8:..\\Debug\\Mario_Sokoban_8_Levels.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_19744F9A56E54A33A2300B345D22B2CB"
